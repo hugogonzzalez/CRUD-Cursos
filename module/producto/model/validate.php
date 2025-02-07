@@ -1,6 +1,6 @@
 <?php
-function validate_nombre($nombre_curso) {
-    $sql = "SELECT * FROM cursos WHERE nombre_curso='$nombre_curso'";
+function validate_nombre($nombre_producto) {
+    $sql = "SELECT * FROM productos WHERE nombre_producto='$nombre_producto'";
 
     $conexion = connect::con();
     $res = mysqli_query($conexion, $sql)->fetch_object();
@@ -13,10 +13,10 @@ function validate() {
     //die('<script>console.log('.json_encode( $data ) .');</script>');
     $check = true;
 
-    $nombre_curso = $_POST['nombre_curso'];
-    $curso_existente = validate_nombre($nombre_curso);
+    $nombre_producto = $_POST['nombre_producto'];
+    $producto_existente = validate_nombre($nombre_producto);
 
-    if ($curso_existente !== null) {
+    if ($producto_existente !== null) {
         echo '<script language="javascript">setTimeout(() => {
             toastr.error("El nombre no puede estar repetido");
         }, 1000);</script>';
@@ -31,11 +31,11 @@ function validate_update() {
     //die('<script>console.log('.json_encode( $data ) .');</script>');
     $check = true;
 
-    $nombre_curso = $_POST['nombre_curso'];
-    $nombre_curso = validate_nombre($nombre_curso);
+    $nombre_producto = $_POST['nombre_producto'];
+    $nombre_producto = validate_nombre($nombre_producto);
 
-    if ($nombre_curso !== null) {
-        if ($nombre_curso->nombre_curso !== $_POST['nombre_curso_old']) {
+    if ($nombre_producto !== null) {
+        if ($nombre_producto->nombre_producto !== $_POST['nombre_producto_old']) {
             echo '<script language="javascript">setTimeout(() => {
                 toastr.error("El nombre no puede estar repetido");
             }, 1000);</script>';

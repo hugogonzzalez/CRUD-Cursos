@@ -1,8 +1,8 @@
 <?php
-$error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $error_fecha_inic = $error_fecha_fin = $error_precio = "";
+$error_nombre_producto = $error_descripcion = $error_categoria =  $error_color =  $error_fecha_inic = $error_fecha_fin = $error_precio = "";
 ?>
 <div id="contenido">
-    <form autocomplete="on" method="post" name="alta_curso" id="alta_curso"> 
+    <form autocomplete="on" method="post" name="alta_producto" id="alta_producto"> 
         <div class="progress-bar top"></div>
         <div class="progress-bar bottom"></div>
         <div class="progress-bar left"></div>
@@ -10,15 +10,15 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
 
         <input type="hidden" id="hola" name="hola" value="hola">
 
-        <h1>Curso Nuevo</h1>
+        <h1>Producto Nuevo</h1>
         <table border='0'>
             <tr>
-                <td>Nombre del Curso: </td>
-                <td><input type="text" id="nombre_curso" name="nombre_curso" placeholder="Nombre del curso" value=""/></td>
+                <td>Nombre del Producto: </td>
+                <td><input type="text" id="nombre_producto" name="nombre_producto" placeholder="Nombre del producto" value=""/></td>
                 <td><font color="red">
-                    <span id="error_nombre_curso" class="error">
+                    <span id="error_nombre_producto" class="error">
                         <?php
-                            echo "$error_nombre_curso";
+                            echo "$error_nombre_producto";
                         ?>
                     </span>
                 </font></td>
@@ -39,9 +39,9 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             <tr>
                 <td>Categoria: </td>
                 <td>
-                    <input type="checkbox" name="categoria[]" value="marketing">Marketing<br>
-                    <input type="checkbox" name="categoria[]" value="informatica">Informatica<br>
-                    <input type="checkbox" name="categoria[]" value="cocina">Cocina<br>
+                    <input type="checkbox" name="categoria[]" value="futbolsala">Futbol Sala<br>
+                    <input type="checkbox" name="categoria[]" value="futbol11">Futbol 11<br>
+                    <input type="checkbox" name="categoria[]" value="entrenamiento">Entrenamiento<br>
                 </td>
                 <td><font color="red">
                     <span id="error_categoria" class="error">
@@ -53,16 +53,16 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             </tr>
             
             <tr>
-                <td>Nivel: </td>
+                <td>Color: </td>
                 <td>
-                    <input type="radio" id="nivel" name="nivel" placeholder="nivel" value="principiante"/>Principiante</input>
-                    <input type="radio" id="nivel" name="nivel" placeholder="nivel" value="intermedio"/>Profesional</input>
-                    <input type="radio" id="nivel" name="nivel" placeholder="nivel" value="intermedio"/>Experto</input>
+                    <input type="radio" id="color" name="color" placeholder="color" value="azul"/>Azul</input>
+                    <input type="radio" id="color" name="color" placeholder="color" value="blanco"/>Blanco</input>
+                    <input type="radio" id="color" name="color" placeholder="color" value="rojo"/>Rojo</input>
                 </td>
                 <td><font color="red">
-                    <span id="error_nivel" class="error">
+                    <span id="error_color" class="error">
                         <?php
-                            echo "$error_nivel";
+                            echo "$error_color";
                         ?>
                     </span>
                 </font></td>

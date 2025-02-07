@@ -4,8 +4,8 @@
 		case "homepage":
 			include("module/inicio/view/inicio.php");
 			break;
-		case "controller_curso";
-			include("module/curso/controller/".$_GET['page'].".php");
+		case "controller_producto";
+			include("module/producto/controller/".$_GET['page'].".php");
 			break;
 		case "services";
 			include("module/services/".$_GET['page'].".php");

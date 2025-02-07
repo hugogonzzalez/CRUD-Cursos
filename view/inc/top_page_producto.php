@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Alta de Curso</title>
+        <title>Alta de Productos</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" />
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
@@ -20,7 +20,7 @@
         	});
 	    </script>
 	    <link href="view/css/style.css" rel="stylesheet" type="text/css" />
-	    <script src="module/curso/model/validate_curso.js"></script>
+	    <script src="module/producto/model/validate_producto.js"></script>
 		<script type="text/javascript" src="view/js/utils.js"></script>
 
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>

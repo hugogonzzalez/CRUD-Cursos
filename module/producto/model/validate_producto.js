@@ -1,4 +1,4 @@
-function validate_nombre_curso(texto) {
+function validate_nombre_producto(texto) {
 
     if (texto.length > 0) {
         var reg = /^[a-zA-Z0-9\s]*$/;
@@ -26,11 +26,11 @@ function validate_categoria(array){
     return false;
 }
 
-function validate_nivel(){
+function validate_color(){
     var i;
     var ok=0;
-    for(i=0; i<nivel.length;i++){
-        if(nivel[i].checked){
+    for(i=0; i<color.length;i++){
+        if(color[i].checked){
             ok=1
         }
     }
@@ -79,34 +79,34 @@ function validate(op){
     // return false;
     var check=true;
     
-    var v_nombre_curso = document.getElementById('nombre_curso').value;
+    var v_nombre_producto = document.getElementById('nombre_producto').value;
     // console.log(v_nombre);
     // return false;
     var v_descripcion = document.getElementById('descripcion').value;
     var v_categoria = document.querySelectorAll('input[name="categoria[]"]');
-    var v_nivel = document.querySelector('input[name="nivel[]"]');
+    var v_color = document.querySelector('input[name="color[]"]');
     var v_fecha_inic = document.getElementById('fecha_inic').value;
     var v_fecha_fin = document.getElementById('fecha_fin').value;
     var v_precio = document.getElementById('precio[]');
     
-    var r_nombre_curso = validate_nombre_curso(v_nombre_curso);
+    var r_nombre_producto = validate_nombre_producto(v_nombre_producto);
     // console.log(r_nombre);
     // return false;
     var r_descripcion = validate_descripcion(v_descripcion);
     var r_categoria = validate_categoria(v_categoria);
-    var r_nivel = validate_nivel(v_nivel);
+    var r_color = validate_color(v_color);
     var r_descripcion = validate_descripcion(v_descripcion);
     var r_fecha_inic = validate_fecha_inic(v_fecha_inic);
     var r_fecha_fin = validate_fecha_fin(v_fecha_inic , v_fecha_fin);
     var r_precio = validate_precio(v_precio);
     
-    if(!r_nombre_curso){
-        document.getElementById('error_nombre_curso').innerHTML = " * El nombre introducido no es válido";
+    if(!r_nombre_producto){
+        document.getElementById('error_nombre_producto').innerHTML = " * El nombre introducido no es válido";
          //console.log(r_nombre);
          //return false;
         check = false;
     } else {
-        document.getElementById('error_nombre_curso').innerHTML = "";
+        document.getElementById('error_nombre_producto').innerHTML = "";
     }
 
     if(!r_descripcion){
@@ -123,11 +123,11 @@ function validate(op){
         document.getElementById('error_categoria').innerHTML = "";
     }
 
-    if(!r_nivel){
-        document.getElementById('error_nivel').innerHTML = " * Debes seleccionar un nivel";
+    if(!r_color){
+        document.getElementById('error_color').innerHTML = " * Debes seleccionar un color";
         check = false;
     } else {
-        document.getElementById('error_nivel').innerHTML = "";
+        document.getElementById('error_color').innerHTML = "";
     }
 
     if(!r_fecha_inic){
@@ -155,37 +155,37 @@ function validate(op){
 
     if (check){
         if (op == 'create'){
-            //console.log('hola validate js');
+            console.log('hola validate js');
             //return false;
-            document.getElementById('alta_curso').submit();
-            document.getElementById('alta_curso').action = "index.php?page=controller_curso&op=create";
+            document.getElementById('alta_producto').submit();
+            document.getElementById('alta_producto').action = "index.php?page=controller_producto&op=create";
         }
         if (op == 'update'){
-            document.getElementById('update_curso').submit();
-            document.getElementById('update_curso').action = "index.php?page=controller_curso&op=update";
+            document.getElementById('update_producto').submit();
+            document.getElementById('update_producto').action = "index.php?page=controller_producto&op=update";
         }
     }
 }
 
-function operations_curso(op){
-    if (op == 'delete'){
-        document.getElementById('delete_curso').submit();
-        document.getElementById('delete_curso').action = "index.php?page=controller_curso&op=delete";
-    }
-    if (op == 'delete_all'){
-        document.getElementById('delete_all_curso').submit();
-        document.getElementById('delete_all_curso').action = "index.php?page=controller_curso&op=delete_all";
-    }
-    if (op == 'dummies'){
-        document.getElementById('dummies_curso').submit();
-        document.getElementById('dummies_curso').action = "index.php?page=controller_curso&op=dummies";
-    }
-}
+// function operations_producto(op){
+//     if (op == 'delete'){
+//         document.getElementById('delete_producto').submit();
+//         document.getElementById('delete_producto').action = "index.php?page=controller_producto&op=delete";
+//     }
+//     if (op == 'delete_all'){
+//         document.getElementById('delete_all_producto').submit();
+//         document.getElementById('delete_all_producto').action = "index.php?page=controller_producto&op=delete_all";
+//     }
+//     if (op == 'dummies'){
+//         document.getElementById('dummies_producto').submit();
+//         document.getElementById('dummies_producto').action = "index.php?page=controller_producto&op=dummies";
+//     }
+// }
 
-function showModal(nombre_curso, id) {
-    $("#details_curso").show();
-    $("#curso_modal").dialog({
-        title: nombre_curso,
+function showModal(nombre_producto, id) {
+    $("#details_producto").show();
+    $("#producto_modal").dialog({
+        title: nombre_producto,
         width : 850,
         height: 500,
         resizable: "false",
@@ -195,39 +195,39 @@ function showModal(nombre_curso, id) {
         show: "fold",
         buttons : {
             Update: function() {
-                        window.location.href = 'index.php?page=controller_curso&op=update&id=' + id;
+                        window.location.href = 'index.php?page=controller_producto&op=update&id=' + id;
                     },
             Delete: function() {
-                        window.location.href = 'index.php?page=controller_curso&op=delete&id=' + id;
+                        window.location.href = 'index.php?page=controller_producto&op=delete&id=' + id;
                     }
         }
     });
 }
 
 function loadContentModal() {
-    $('.curso').click(function () {
+    $('.producto').click(function () {
         //console.log('hola loadContentModal js');
         //return false;
         var id = this.getAttribute('id');
         //console.log('id: ' + id);
         //return false;
-        ajaxPromise('module/curso/controller/controller_curso.php?op=read_modal', 'POST', 'JSON', { id: id })
+        ajaxPromise('module/producto/controller/controller_producto.php?op=read_modal', 'POST', 'JSON', { id: id })
         .then(function(data) {
             //console.log(data);
             //return false;
             //var data = JSON.parse(data);
-            $('<div></div>').attr('id', 'details_curso', 'type', 'hidden').appendTo('#curso_modal');
-            $('<div></div>').attr('id', 'container').appendTo('#details_curso');
+            $('<div></div>').attr('id', 'details_producto', 'type', 'hidden').appendTo('#producto_modal');
+            $('<div></div>').attr('id', 'container').appendTo('#details_producto');
             $('#container').empty();
-            $('<div></div>').attr('id', 'curso_content').appendTo('#container');
-            $('#curso_content').html(function() {
+            $('<div></div>').attr('id', 'producto_content').appendTo('#container');
+            $('#producto_content').html(function() {
                 var content = "";
                 for (row in data) {
                     content += '<br><br><span>' + row + ': <span id =' + row + '>' + data[row] + '</span></span>';
                 }
                 return content;
                 });
-                showModal(nombre_curso = data.descripcion + " " + data.nivel, data.id_curso);
+                showModal(nombre_producto = data.descripcion + " " + data.color, data.id_producto);
         })
         .catch(function() {
             window.location.href = 'index.php?module=errors&op=503&desc=List error';

@@ -10,7 +10,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.php" class="active">Home</a></li>
-          <li><a href="/CRUD2.1 Mejoras/index.php?page=controller_curso&op=list"> Cursos</a></li>
+          <li><a href="/CRUD2.1 Mejoras/index.php?page=controller_producto&op=list"> Productos</a></li>
           <li><a href="#features">Características</a></li>
           <li><a href="#gallery">Galeria</a></li>
           <li><a href="#team">Equipo</a></li>

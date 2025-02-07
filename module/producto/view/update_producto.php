@@ -1,26 +1,26 @@
 <?php
-$error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $error_fecha_inic = $error_fecha_fin = $error_precio = "";
+$error_nombre_producto = $error_descripcion = $error_categoria =  $error_color =  $error_fecha_inic = $error_fecha_fin = $error_precio = "";
 ?>
 <div id="contenido">
-    <form autocomplete="on" method="post" name="update_curso" id="update_curso">
+    <form autocomplete="on" method="post" name="update_producto" id="update_producto">
         <div class="progress-bar top"></div>
         <div class="progress-bar bottom"></div>
         <div class="progress-bar left"></div>
         <div class="progress-bar right"></div>
         
     <input type="hidden" id="hola" name="hola">
-    <input type="hidden" id="id_curso" name="id_curso" value="<?php echo $curso['id_curso']; ?>"/>
-    <input type="hidden" id="nombre_curso_old" name="nombre_curso_old" value="<?php echo $curso['nombre_curso']; ?>"/>
+    <input type="hidden" id="id_producto" name="id_producto" value="<?php echo $producto['id_producto']; ?>"/>
+    <input type="hidden" id="nombre_producto_old" name="nombre_producto_old" value="<?php echo $producto['nombre_producto']; ?>"/>
 
-        <h1>Modificar Curso</h1>
+        <h1>Modificar Producto</h1>
         <table border='0'>
             <tr>
-                <td>Nombre del Curso: </td>
-                <td><input type="text" id="nombre_curso" name="nombre_curso" placeholder="Nombre del curso" value="<?php echo $curso['nombre_curso']; ?>" /></td>
+                <td>Nombre del Producto: </td>
+                <td><input type="text" id="nombre_producto" name="nombre_producto" placeholder="Nombre del producto" value="<?php echo $producto['nombre_producto']; ?>" /></td>
                 <td><font color="red">
-                    <span id="error_nombre_curso" class="error">
+                    <span id="error_nombre_producto" class="error">
                         <?php
-                            echo "$error_nombre_curso";
+                            echo "$error_nombre_producto";
                         ?>
                     </span>
                 </font></font></td>
@@ -28,7 +28,7 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
         
             <tr>
                 <td>Descripcion: </td>
-                <td><input type="text" id="descripcion" name="descripcion" placeholder="Descripcion" value="<?php echo $curso['descripcion']; ?>"/></td>
+                <td><input type="text" id="descripcion" name="descripcion" placeholder="Descripcion" value="<?php echo $producto['descripcion']; ?>"/></td>
                 <td><font color="red">
                     <span id="error_descripcion" class="error">
                         <?php
@@ -41,42 +41,42 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             <tr>
                 <td>Categoria: </td>
                 <?php
-                    $categoria=explode(":", $curso['categoria']);
+                    $categoria=explode(":", $producto['categoria']);
                 ?>
                 <td>
                     <?php
-                        $busca_array=in_array("marketing", $categoria);
+                        $busca_array=in_array("futbolsala", $categoria);
                         if($busca_array){
                     ?>
-                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="marketing" checked/>Marketing
+                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="futbolsala" checked/>Futbol Sala
                     <?php
                         }else{
                     ?>
-                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="marketing"/>Marketing
+                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="futbolsala"/>Futbol Sala
                     <?php
                         }
                     ?>
                     <?php
-                        $busca_array=in_array("informatica", $categoria);
+                        $busca_array=in_array("futbol11", $categoria);
                         if($busca_array){
                     ?>
-                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="informatica" checked/>Informatica
+                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="futbol11" checked/>Futbol 11
                     <?php
                         }else{
                     ?>
-                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="informatica"/>Informatica
+                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="futbol11"/>Futbol 11
                     <?php
                         }
                     ?>
                     <?php
-                        $busca_array=in_array("cocina", $categoria);
+                        $busca_array=in_array("entrenamiento", $categoria);
                         if($busca_array){
                     ?>
-                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="cocina" checked/>Cocina</td>
+                        <input type="checkbox" id= "categoria[]" name="categoria[]" value="entrenamiento" checked/>Entrenamiento</td>
                     <?php
                         }else{
                     ?>
-                    <input type="checkbox" id= "categoria[]" name="categoria[]" value="cocina"/>Cocina</td>
+                    <input type="checkbox" id= "categoria[]" name="categoria[]" value="entrenamiento"/>Entrenamiento</td>
                     <?php
                         }
                     ?>
@@ -91,16 +91,16 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             </tr>
             
             <tr>
-                <td>Nivel: </td>
+                <td>Color: </td>
                 <td>
-                    <input type="radio" id="nivel" name="nivel" value="principiante" <?php if ($curso['nivel'] == "principiante") echo "checked"; ?>>Principiante
-                    <input type="radio" id="nivel" name="nivel" value="intermedio" <?php if ($curso['nivel'] == "intermedio") echo "checked"; ?>>Intermedio
-                    <input type="radio" id="nivel" name="nivel" value="avanzado" <?php if ($curso['nivel'] == "avanzado") echo "checked"; ?>>Avanzado
+                    <input type="radio" id="color" name="color" value="azul" <?php if ($producto['color'] == "azul") echo "checked"; ?>>Azul
+                    <input type="radio" id="color" name="color" value="blanco" <?php if ($producto['color'] == "blanco") echo "checked"; ?>>Blanco
+                    <input type="radio" id="color" name="color" value="rojo" <?php if ($producto['color'] == "rojo") echo "checked"; ?>>Rojo
                 </td>
                 <td><font color="red">
-                    <span id="error_nivel" class="error">
+                    <span id="error_color" class="error">
                         <?php
-                            echo "$error_nivel";
+                            echo "$error_color";
                         ?>
                     </span>
                 </font></font></td>
@@ -108,7 +108,7 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             
             <tr>
                 <td>Fecha de Inicio: </td>
-                <td><input id="fecha_inic" class='fecha' type="text" name="fecha_inic" placeholder="Fecha de Inicio" value="<?php echo $curso['fecha_inic']; ?>"/></td>
+                <td><input id="fecha_inic" class='fecha' type="text" name="fecha_inic" placeholder="Fecha de Inicio" value="<?php echo $producto['fecha_inic']; ?>"/></td>
                 <td><font color="red">
                     <span id="error_fecha_inic" class="error">
                         <?php
@@ -120,7 +120,7 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             
             <tr>
                 <td>Fecha Fin: </td>
-                <td><input id="fecha_fin" class='fecha' type="text" name="fecha_fin" placeholder="Fecha Final" value="<?php echo $curso['fecha_fin']; ?>"/></td>
+                <td><input id="fecha_fin" class='fecha' type="text" name="fecha_fin" placeholder="Fecha Final" value="<?php echo $producto['fecha_fin']; ?>"/></td>
                 <td><font color="red">
                     <span id="error_fecha_fin" class="error">
                         <?php
@@ -133,7 +133,7 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             <tr>
             <td>Precio: </td>
                 <?php
-                    $precio=explode(":", $curso['precio']);
+                    $precio=explode(":", $producto['precio']);
                 ?>
                 <td><select multiple size="2" id="precio[]" name="precio[]" placeholder="precio">
                 <?php
@@ -196,7 +196,7 @@ $error_nombre_curso = $error_descripcion = $error_categoria = $error_nivel = $er
             
             <tr>
                 <td><br><input name="Submit" type="button" onclick="validate('update')" value="Modificar"/></td>
-                <td align="right"><a href="index.php?page=controller_curso&op=list">Volver</a></td>
+                <td align="right"><a href="index.php?page=controller_producto&op=list">Volver</a></td>
             </tr>
         </table>
     </form>

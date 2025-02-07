@@ -4,9 +4,9 @@
 			$host = '127.0.0.1';  
     		$user = "root";                     
     		$pass = "";                             
-    		$db = "cursos";                      
+    		$db = "productos";                      
     		$port = 3306;                           
-    		$tabla="cursos";
+    		$tabla="productos";
     		
     		$conexion = mysqli_connect($host, $user, $pass, $db, $port)or die(mysql_error());
 			return $conexion;
